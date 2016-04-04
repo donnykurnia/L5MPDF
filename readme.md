@@ -33,17 +33,14 @@ To the `aliases` array on yout `config/app.php` in order to enable the PDF facad
 
 ```php
 $router->get('/pdf/view', function() {
-       // Config::set('mpdfconfig.pdf.options',['th','A5','','',10,10,10,10,10,5,'L'] );
-       // Config::set('mpdfconfig.pdf.options','"th","A0","","",10,10,10,10,6,3');
-       // $mpdfcfg = Config::get('mpdfconfig');
-       // dump($mpdfcfg);
-       // consolelog('mpdfcfg1',$mpdfcfg);
-       $pdf = \App::make('mpdf.wrapper',['th','A0','','',10,10,10,10,10,5,'L']);
-       // $pdf = \App::make('mpdf.wrapper');
-       $pdf->WriteHTML('<h1>test</h1>');
-       $pdf->AddPage('P');
-       $pdf->WriteHTML('<h1>test2</h1>');
-       $pdf->stream();
+    $pdf = \App::make('mpdf.wrapper', [
+        'mode'   => 'id+aCJK',
+        'format' => 'A4-L',
+    ]);
+    $pdf->WriteHTML('<h1>Page 1</h1>');
+    $pdf->AddPage('P');
+    $pdf->WriteHTML('<h1>Page 2</h1>');
+    $pdf->stream();
 });
 ```
 
@@ -69,3 +66,22 @@ $router->get('/pdf/output', function() {
 });
 ```
 This mPDF Wrapper for Laravel5 is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+## Default config
+
+These default config can be overridden when creating the `mpdf.wrapper`.
+```php
+[
+    'mode'                  => '',
+    'format'                => 'A4',
+    'defaultFontSize'       => '',
+    'defaultFont'           => '',
+    'marginLeft'            => 10,
+    'marginRight'           => 10,
+    'marginTop'             => 10,
+    'marginBottom'          => 10,
+    'marginHeader'          => 10,
+    'marginFooter'          => 5,
+    'orientation'           => 'P',
+]
+```
