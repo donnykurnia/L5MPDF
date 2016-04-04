@@ -1,11 +1,19 @@
 {
-    "name": "maspriyono/l5mpdf",
+    "name": "donnykurnia/l5mpdf",
     "description": "mPDF wrapper for Laravel 5",
     "keywords": ["laravel","mpdf", "pdf"],
     "authors": [
-      {
+        {
             "name": "thongchai",
             "email": "limweb@hotmail.com"
+        },
+        {
+            "name": "maspriyono",
+            "email": ""
+        },
+        {
+            "name": "donnykurnia",
+            "email": "donnykurnia@gmail.com"
         }
     ],
     "require": {
