@@ -7,13 +7,13 @@ In development.
 ## Instalation
 Add:
 ```
-"servit/l5mpdf": "dev-master@dev",
+"donnykurnia/l5mpdf": "dev-master@dev",
 ```
 To your `composer.json`
 
 or Run:
 ```
-composer require servit/l5mpdf
+composer require donnykurnia/l5mpdf
 ```
 
 Then add:
@@ -69,8 +69,3 @@ $router->get('/pdf/output', function() {
 });
 ```
 This mPDF Wrapper for Laravel5 is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-1
-
-
-.............
-/****************************/
