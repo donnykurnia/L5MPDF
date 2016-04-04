@@ -1,8 +1,8 @@
 ## mPDF Wrapper for Laravel 5
 In development.
 ### License
-[![Build Status](https://api.travis-ci.org/vsmoraes/pdf-laravel5.svg)](https://github.com/limweb/L5MPDF)
-[![License](https://poser.pugx.org/vsmoraes/laravel-pdf/license.svg)](https://packagist.org/packages/servit/l5mpdf)
+[![License](https://poser.pugx.org/donnykurnia/l5mpdf/license)](https://packagist.org/packages/donnykurnia/l5mpdf)
+[![Latest Stable Version](https://poser.pugx.org/donnykurnia/l5mpdf/v/stable)](https://packagist.org/packages/donnykurnia/l5mpdf)
 
 ## Instalation
 Add:
