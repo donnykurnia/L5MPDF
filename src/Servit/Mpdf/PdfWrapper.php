@@ -7,7 +7,7 @@ namespace Servit\Mpdf;
  * @package Mpdf
  * @author Lowe Rends
  */
-class PdfWrapper{
+class PdfWrapper {
 
     /** @var \Mpdf  */
     protected $mpdf;
@@ -15,9 +15,9 @@ class PdfWrapper{
     protected $options;
 
     public function __construct($mpdf){
-       $this->mpdf = $mpdf;
-       $this->options = array();
-   }
+        $this->mpdf = $mpdf;
+        $this->options = array();
+    }
 
     /**
      * Load a HTML string
@@ -56,8 +56,6 @@ class PdfWrapper{
         $this->file = null;
         return $this;
     }
-
-
 
     /**
      * Output the PDF as a string.
@@ -137,27 +135,19 @@ class PdfWrapper{
         return $this->mpdf->Output($filename, 'I');
     }
     
-   public function toiframe() {
-        return '<iframe type="application/pdf"    width="100%"     height="100%"     src="data:application/pdf;base64,'.base64_encode($this->mpdf->Output('', 'S')).'">    Oops, you have no support for iframes. </iframe>';
-    }
-    
-
- public function toObject() {
-    return  '<object type="application/pdf" data="data:application/pdf;base64,'.base64_encode($this->mpdf->Output('', 'S')).'" width="100%" height="100%"></object>';
- }
-
-
-    // public function __call($name, $arguments){
-    //     return call_user_func_array (array( $this->mpdf, $name), $arguments);
-    // }
-
-   public function __call($name, $arguments){
-        // $rs = call_user_func_array (array( $this->mpdf, $name), $arguments);
-            return     call_user_func_array(array($this->mpdf, $name), $this->makeValuesReferenced($arguments));
+    public function toiframe() {
+        return '<iframe type="application/pdf" width="100%" height="100%" src="data:application/pdf;base64,'.base64_encode($this->mpdf->Output('', 'S')).'"> Oops, you have no support for iframes. </iframe>';
     }
 
+    public function toObject() {
+        return '<object type="application/pdf" data="data:application/pdf;base64,'.base64_encode($this->mpdf->Output('', 'S')).'" width="100%" height="100%"></object>';
+    }
 
-    function makeValuesReferenced($arr){
+    public function __call($name, $arguments){
+        return call_user_func_array(array($this->mpdf, $name), $this->makeValuesReferenced($arguments));
+    }
+
+    protected function makeValuesReferenced($arr){
         $refs = array();
         foreach($arr as $key => $value)
             $refs[$key] = &$arr[$key];
